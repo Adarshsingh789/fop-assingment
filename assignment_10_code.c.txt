@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+long factorial(int n) {
+    long f = 1;
+    for(int i = 1; i <= n; i++)
+        f *= i;
+    return f;
+}
+
+int main() {
+    int choice, x, y;
+    float a, b;
+
+    printf("1.Add\n2.Sub\n3.Mul\n4.Div\n5.Power\n6.Factorial\n");
+    printf("Enter choice: ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case 1:
+            scanf("%f %f", &a, &b);
+            printf("Result = %.2f\n", a + b);
+            break;
+
+        case 2:
+            scanf("%f %f", &a, &b);
+            printf("Result = %.2f\n", a - b);
+            break;
+
+        case 3:
+            scanf("%f %f", &a, &b);
+            printf("Result = %.2f\n", a * b);
+            break;
+
+        case 4:
+            scanf("%f %f", &a, &b);
+            if(b != 0)
+                printf("Result = %.2f\n", a / b);
+            else
+                printf("Error\n");
+            break;
+
+        case 5:
+            scanf("%d %d", &x, &y);
+            int result = 1;
+            for(int i = 0; i < y; i++)
+                result *= x;
+            printf("Result = %d\n", result);
+            break;
+
+        case 6:
+            scanf("%d", &x);
+            printf("Factorial = %ld\n", factorial(x));
+            break;
+
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}

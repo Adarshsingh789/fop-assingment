@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+struct emp {
+    char name[50], des[50], gender[10], doj[20];
+    float salary;
+};
+
+int main() {
+    int n, i, male=0, female=0;
+    struct emp e[50];
+
+    printf("Enter number of employees: ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++) {
+        printf("Enter details:\n");
+        scanf("%s %s %s %s %f",
+              e[i].name, e[i].des, e[i].gender, e[i].doj, &e[i].salary);
+
+        if(strcmp(e[i].gender,"Male")==0) male++;
+        else female++;
+    }
+
+    printf("Total = %d\nMale = %d\nFemale = %d\n", n, male, female);
+
+    printf("Salary > 10000:\n");
+    for(i=0;i<n;i++)
+        if(e[i].salary > 10000)
+            printf("%s\n", e[i].name);
+
+    printf("Asst Manager:\n");
+    for(i=0;i<n;i++)
+        if(strcmp(e[i].des,"AsstManager")==0)
+            printf("%s\n", e[i].name);
+
+    return 0;
+}

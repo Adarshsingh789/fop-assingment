@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+long fact_iter(int n) {
+    long f = 1;
+    for(int i=1;i<=n;i++)
+        f *= i;
+    return f;
+}
+
+long fact_rec(int n) {
+    if(n == 0 || n == 1)
+        return 1;
+    return n * fact_rec(n-1);
+}
+
+int main() {
+    int n;
+    printf("Enter number: ");
+    scanf("%d",&n);
+
+    printf("Iterative factorial = %ld\n", fact_iter(n));
+    printf("Recursive factorial = %ld\n", fact_rec(n));
+
+    return 0;
+}
